@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "inventory-server:7001",
+            "script": "npm",
+            "args" : "start"
+        }
+    ]
+}
