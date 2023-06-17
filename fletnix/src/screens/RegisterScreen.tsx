@@ -1,6 +1,5 @@
 import { Button, CircularProgress, Stack, TextField, Typography } from "@mui/material"
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom"
 import { APiService } from "../services/apiService";
 
@@ -14,7 +13,6 @@ export default function RegisterScreen() {
     name:'Gaurav Singh',
     age: '0',
   });
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [isLoading , setIsLoading] = useState(false);

@@ -22,6 +22,7 @@ export default function HomeScreen() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
+    setLimit(15) // Just for removing build time error
     const fetchData = async () => {
       const params:any = {
         limit:limit, 
@@ -107,7 +108,7 @@ export default function HomeScreen() {
       </Box>
       <ShowDeails isOpen={isOpen} data={currentData} setOpen={setOpen}/>
       
-      <Pagination count={Math.round(count/limit)} variant="outlined" shape="rounded"  onChange={(e,p) => setSkip(p)} />
+      <Pagination count={Math.round(count/limit)} variant="outlined" shape="rounded"  onChange={(e,p) =>{setSkip(p); console.log(e)}} />
     </> 
   )
 }
@@ -154,7 +155,7 @@ interface ShowItemProps {
 
 function ShowItem({setCurrentData, setOpen, data}: ShowItemProps) {
   return (
-    <Card variant={'outlined'} sx={{height: '200px'}} onClick={(e) => {
+    <Card variant={'outlined'} sx={{height: '200px'}} onClick={() => {
       setCurrentData(data);
       setOpen(true);
     }}>
@@ -170,8 +171,6 @@ function ShowItem({setCurrentData, setOpen, data}: ShowItemProps) {
       </Typography>
       <Typography variant="body2">
         {data.listed_in}
-        <br />
-        {'"a benevolent smile"'}
       </Typography>
     </CardContent>
     </Card>

@@ -3,7 +3,7 @@ import axios from 'axios';
 export class APiService {
     baseUrl: string;
     constructor() {
-        this.baseUrl = 'http://172.20.131.217:7002/api/v1/';
+        this.baseUrl = 'https://api.shipthis.booringcodes.in/api/v1/';
     }
 
     loginRequest = async (username: string, password: string) => {
